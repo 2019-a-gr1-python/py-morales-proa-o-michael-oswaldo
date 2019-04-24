@@ -1,0 +1,3 @@
+perro,luis,2
+perro,jose,1
+gato,pancho,3
