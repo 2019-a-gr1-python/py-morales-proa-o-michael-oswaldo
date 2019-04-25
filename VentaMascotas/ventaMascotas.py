@@ -46,3 +46,5 @@ def tienda():
         print('no admin')	
 
     input('salir??')
+
+tienda()
