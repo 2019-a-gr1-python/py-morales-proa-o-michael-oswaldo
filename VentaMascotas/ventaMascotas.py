@@ -1,31 +1,36 @@
-
+import numpy as np
+import sys
+def listar():
+    path = './mascotas.csv'
+    arreglo_mascotas = np.genfromtxt(path,delimiter=',',dtype='str')
+    print(arreglo_mascotas)
+def  crear():
+	print('crear')
+def borrar():
+	print('borrar')
+def editar():
+	print('editar')
+def salir():
+	sys.exit()
 def crud():
-	print('\nBienvenido Administrador!')
+    print('\nBienvenido Administrador!')
     print('1. Listar')
     print('2. Crear')
     print('3. Borrar')
     print('4. Editar')
     print('5. Salir')
     accion = input('Que desea Hacer')
-    def listar():
-		print('Esta Listando')
-	def crear():
-		print('Esta crear')
-	def borrar():
-		print('Esta borrar')
-	def editar():
-		print('Esta editar')
-    def switch_accion():
-        return{
-            '1' :listar(),
-            '2' :crear(),
-            '3' :borrar(),
-             '4' :editar() 
-            }[accion]
-    return switch_accion()
-
-
-
+    print(accion)
+    if accion == '1':
+        listar()
+    if accion == '2':
+        crear()
+    if accion == '3':
+        borrar()
+    if accion == '4':
+        editar()
+    if accion == '5':
+        salir()
 def adoptar():
     print('aqui se adopta')
     
