@@ -48,7 +48,24 @@ def borrar():
         #    if splited[2]==codigo:
          #       lineas[i-1]=''
 def editar():
-    print('editar')
+    codigo = input('Ingrese el codigo de la mascota a editar:\n')
+    tipo = input('Ingrese el tipo de la mascota a editar:\n')
+    nombre = input('Ingrese el nombre de la mascota a editar:\n')
+    path = './mascotas.csv'
+    archivo_escritura_abierto = open(path, mode='r')
+    lineas = archivo_escritura_abierto.readlines()
+
+    splited = []
+    i = 0
+    for a in lineas:
+        i = i + 1
+        splited = a.split(',')
+        if splited[2].rstrip('\n') == codigo:
+            lineas[i-1] =f'{tipo},{nombre},{codigo}\n'
+    archivo_escritura_abierto.close()
+    print(lineas)
+    archivo_escritura_abierto2 = open(path, mode='w')
+    archivo_escritura_abierto2.writelines(lineas)
 
 
 def salir():
