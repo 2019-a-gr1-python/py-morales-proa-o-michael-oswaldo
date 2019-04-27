@@ -34,11 +34,16 @@ def borrar():
     splited = []
     i = 0
     for a in lineas:
+        i=i+1
         splited = a.split(',')
-        if splited.__sizeof__()>2:
+        if splited[2].rstrip('\n')== codigo :
             print(splited)
             print(type(splited))
-
+            lineas.pop(i-1)
+    archivo_escritura_abierto.close()
+    print(lineas)
+    archivo_escritura_abierto2 = open(path,mode='w')
+    archivo_escritura_abierto2.writelines(lineas)
        # if lineas[i-1]!='':
         #    if splited[2]==codigo:
          #       lineas[i-1]=''
