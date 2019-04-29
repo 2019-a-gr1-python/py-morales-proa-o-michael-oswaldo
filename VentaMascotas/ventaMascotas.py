@@ -13,7 +13,6 @@ def listar():
     for a in arreglo_mascotas:
         print(f'{a[2]}                   {a[0]}                       {a[1]}')
 
-
 def crear():
     codigo = input('Ingrese el codigo de la nueva mascota:\n')
     tipo = input('Tngrese el tipo de la nueva mascota:\n')
@@ -34,19 +33,20 @@ def borrar():
     splited = []
     i = 0
     for a in lineas:
-        i=i+1
+        i = i + 1
         splited = a.split(',')
-        if splited[2].rstrip('\n')== codigo :
+        if splited[2].rstrip('\n') == codigo:
             print(splited)
             print(type(splited))
-            lineas.pop(i-1)
+            lineas.pop(i - 1)
     archivo_escritura_abierto.close()
     print(lineas)
-    archivo_escritura_abierto2 = open(path,mode='w')
+    archivo_escritura_abierto2 = open(path, mode='w')
     archivo_escritura_abierto2.writelines(lineas)
-       # if lineas[i-1]!='':
-        #    if splited[2]==codigo:
-         #       lineas[i-1]=''
+    # if lineas[i-1]!='':
+    #    if splited[2]==codigo:
+    #       lineas[i-1]=''
+
 def editar():
     codigo = input('Ingrese el codigo de la mascota a editar:\n')
     tipo = input('Ingrese el tipo de la mascota a editar:\n')
@@ -61,20 +61,33 @@ def editar():
         i = i + 1
         splited = a.split(',')
         if splited[2].rstrip('\n') == codigo:
-            lineas[i-1] =f'{tipo},{nombre},{codigo}\n'
+            lineas[i - 1] = f'{tipo},{nombre},{codigo}\n'
     archivo_escritura_abierto.close()
     print(lineas)
     archivo_escritura_abierto2 = open(path, mode='w')
     archivo_escritura_abierto2.writelines(lineas)
 
-
 def salir():
     sys.exit()
 
-
-def adoptar():
-    print('se supone codigo adoptar')
-
+def adoptar(usuario):
+    idUser = -1
+    path = './usuarios.csv'
+    path2 = '/usuarios.csv'
+    archivo_escritura_abierto = open(path, mode='r')
+    lineas = archivo_escritura_abierto.readlines()
+    splited = []
+    i = 0
+    for a in lineas:
+        i = i + 1
+        splited = a.split(',')
+        if splited[0].rstrip('\n') == usuario:
+            idUser = splited[2]
+    print(f' su codigo de usuario es : {idUser}')
+    idMascota = input('Que mascota desea Adoptar')
+    archivo_escritura_abierto2 = open(path2, mode='a')
+    archivo_escritura_abierto2.writelines([f'\n{idUser},{idMascota}'])
+    print('Adopción Realizada!!!')
 
 def crud():
     volver = 0
@@ -99,7 +112,6 @@ def crud():
             salir()
             volver = 1
 
-
 def validar(usuario, password):
     path = './usuarios.csv'
     arreglo_usuarios = np.genfromtxt(path, delimiter=',', dtype='str')
@@ -110,21 +122,22 @@ def validar(usuario, password):
             credential_bolean = True
     return credential_bolean
 
-
-def adoptar_mascota():
-    print('Bienvenido!!\n')
-    print('1. Ver Mascotas ')
-    print('2. Adoptar una Mascota')
-    print('3. Salir')
-    accion = input('Que desea hacer: \n')
-    if accion == '1':
-        listar()
-    if accion == '2':
-        listar()
-        adoptar()
-    if accion == '3':
-        salir()
-
+def adoptar_mascota(usuario):
+    volver = 0
+    while volver == 0:
+        print(f'Bienvenido!! {usuario}\n')
+        print('1. Ver Mascotas ')
+        print('2. Adoptar una Mascota')
+        print('3. Salir')
+        accion = input('Que desea hacer: \n')
+        if accion == '1':
+            listar()
+        if accion == '2':
+            listar()
+            adoptar(usuario)
+        if accion == '3':
+            salir()
+            volver = 1
 
 def main():
     print('\n\n***********************************************')
@@ -133,12 +146,13 @@ def main():
     print('***********************************************')
     usuario = input('ingresa tu Nombre de Usuario :\n')
     password = input('Ingresa tu contraseña:\n')
+
     existe = validar(usuario, password)
     if existe:
         if usuario == 'admin':
             crud()
         else:
-            adoptar_mascota()
+            adoptar_mascota(usuario)
     else:
         print('Credenciales Incorrectas')
         sys.exit()
