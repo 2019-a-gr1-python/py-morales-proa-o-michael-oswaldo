@@ -1,11 +1,11 @@
 import numpy as np
 #edad = 29
-#print(edad)
+#prinint(edad)
 #edad_str = '29'
 #suma = int(edad_str)+edad
 #print(suma)
 parrafo = """chbsacb sdicb asduiasd asdbasjdbkjasdbkjasdbcjasdbkajsdh ckjsadbcbasdvada
-sd
+sdinte
 asdf
 as
 dfsdv
