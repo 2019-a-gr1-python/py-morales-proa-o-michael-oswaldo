@@ -4,7 +4,7 @@ import matrices as ma
 
 print('*************************'
       '\n*************************'
-      '\nEjercicios con matrices'
+      '\nEjercicios con Numpy'
       '\n*************************'
       '\n*************************')
 filas = input('Ingrese el numero de filas de la matriz "A"')

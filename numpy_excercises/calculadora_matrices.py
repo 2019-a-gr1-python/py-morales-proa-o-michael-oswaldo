@@ -1,6 +1,5 @@
-from validar import OK, OKI, ns
+from validar import OK, OKI
 import numpy as np
-import subprocess
 
 
 def val(tipo):
@@ -10,6 +9,7 @@ def val(tipo):
 
 
 def dato():
+
     tipo_dato = val(input("Tipo de dato: "))
     if tipo_dato == "M":
         matr = crea_matriz(fil, col)
@@ -27,7 +27,7 @@ def crea_matriz(fil, col):
         f += 1
         for c in range(col):
             c += 1
-            valor = OK(input('Introduzca el componente (%d,%d): ' % (f, c)))
+            valor = OK(input(f'Introduzca el valor del campo [{f},{c}]: '))
             e_col.append(valor)
         e_fil.append(e_col)
         matri = np.array(e_fil, float)
@@ -36,21 +36,18 @@ def crea_matriz(fil, col):
 
 while True:
     print("         CALCULADORA DE MATRICES          ")
-    print("""************TABLA DE OPERADORES************
+    print("""
 *******************************************
-SUMA                           OPERADOR "+"
-RESTA                          OPERADOR "-"
-MULTIPLICACION                 OPERADOR "*"
-VER RESULTADO                  OPERADOR "="
-DATO MATRIZ                    OPERANDO "M"
-DATO NÚMERO                    OPERANDO "N"
+SUMA                            "+"
+RESTA                           "-"
+MULTIPLICACION                  "*"
+VER RESULTADO                   "="
 *******************************************
 *******************************************""")
 
     fil = OKI(input("Indique número de filas: "))
     col = OKI(input("Indique número de columnas: "))
     e = fil
-    # c=col
     f = -1;
     c = -1
     acum = dato()
@@ -83,10 +80,6 @@ DATO NÚMERO                    OPERANDO "N"
             print("")
             break
         print(matr)
-    conti = ns(input("¿Reiniciar programa?: "))
-    if conti == "n":
-        break
-    matr = 0
-    subprocess.call(["cmd.exe", "/C", "cls"])
+
 
 

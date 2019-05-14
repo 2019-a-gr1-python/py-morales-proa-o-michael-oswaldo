@@ -26,7 +26,7 @@ def OK(n):
     return n
 
 
-def n_val(n, tn):  # FUNCION QUE INTEGRA "OKI" Y "OK".
+def n_val(n, tn):
     if tn == ("i"):
         try:
             n = int(n)
@@ -40,11 +40,7 @@ def n_val(n, tn):  # FUNCION QUE INTEGRA "OKI" Y "OK".
     return n
 
 
-def ns(c):
-    while c != ("s") and c != ("n"):
-        print(chr(7));
-        c = input("Escribe solo \'n\' o \'s\' según su opción: ")
-    return (c)
+
 
 
 def ER(n):
