@@ -1,14 +1,45 @@
 import numpy as np
-import matrices as ma
+import matrices_calcu as c
+import varios.main as v
 
 
-print('*************************'
-      '\n*************************'
-      '\nEjercicios con Numpy'
-      '\n*************************'
-      '\n*************************')
-filas = input('Ingrese el numero de filas de la matriz "A"')
-columnas = input('Ingrese el numero de columnas de la matriz "B"')
 
-matriz_a =  np.array(filas,columnas)
+
+print("""
+****************************************
+****************************************
+******  EJERCICIOS CON NUMPY    ********
+****************************************
+****************************************
+""")
+
+accion = -1
+
+while accion!=5:
+      print("""
+      1. Calculadora de Matrices
+      2. Archivos en Numpy
+      3. Varios
+      4. Imagenes
+      5. Salir
+      """)
+      accion = input('Que desea Hacer')
+      if accion == '1':
+            c.main()
+      elif accion == '2':
+            print('a')
+      elif accion == '3':
+            v.main()
+
+      elif accion == '5':
+            print('Hasta Luego')
+            accion = 5
+
+
+
+
+
+
+
+
 

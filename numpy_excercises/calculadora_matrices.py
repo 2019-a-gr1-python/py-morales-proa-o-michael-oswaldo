@@ -33,8 +33,8 @@ def crea_matriz(fil, col):
         matri = np.array(e_fil, float)
     return matri
 
-
-while True:
+n = True
+while n:
     print("         CALCULADORA DE MATRICES          ")
     print("""
 *******************************************
@@ -80,6 +80,11 @@ VER RESULTADO                   "="
             print("")
             break
         print(matr)
+    responde = input("""[0]. Salir[Any]. Seguir Calculando""" )
+    if responde == "0":
+        n = False
+
+
 
 
 
