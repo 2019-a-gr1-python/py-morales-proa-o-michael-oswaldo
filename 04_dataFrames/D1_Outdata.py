@@ -168,12 +168,15 @@ writer.save()
 
 
 writer = pd.ExcelWriter('colores5.xlsx', engine = 'xlsxwriter')
-artistas_contados.to_excel(writer, sheet_name = 'Ejemplo5')
+artistas_contados2.to_excel(writer, sheet_name = 'Ejemplo5')
 hoja_ejemplo2= writer.sheets['Ejemplo5']
 
 
 formato5 ={'type': 'icon_set',
            'icon_style': '3_traffic_lights',
+           'icons': [{'criteria': '>=', 'type': 'number',     'value': '100'},
+                  {'criteria': '<',  'type': 'percentile', 'value': '50'},
+                  {'criteria': '<=', 'type': 'percent',    'value': '100'}]
            }
     
 hoja_ejemplo2.conditional_format(rango_celdas,formato5)

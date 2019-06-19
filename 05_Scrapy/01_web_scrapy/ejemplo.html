@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /*Por etiqueta*/
+        h1{
+
+    background-color: blue ;
+
+}
+        #principal{
+            background-color: green;
+
+        }
+       .rojo{
+            background-color: red;
+
+        }
+
+        p.rojo{
+
+
+            background-color: yellow;
+        }
+        p.rojo.azul{
+
+
+            background-color: greenyellow;
+        }
+
+        div > p.morado {
+
+            background-color: purple;
+        }
+        div > p.morado > span.blanco{
+
+            color: whitesmoke;
+        }
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+<h1>H1 1</h1>
+<h1 id = "principal">H1 2</h1>
+<h1 class = "rojo"> H1 3</h1>
+
+
+<p class = "rojo" > Parrafo rojo</p>
+<p class = "rojo azul" > Parrafo rojo azul</p>
+<p> Parrafo Normal</p>
+<p class = "verde" > </p>
+
+<p class="morado">Morado Afuera</p>
+<p class="cafe">cafe afuera</p>
+<div>
+    <p class="morado">Morado Adentro</p>
+    <p class="morado"><span class="blanco" > Morado Span Blanco    </span>
+        <span > Morado Adentro     </span></p>
+    <p class="cafe"> Café adentro</p>
+</div>
+
+
+
+
+</body>
+</html>
