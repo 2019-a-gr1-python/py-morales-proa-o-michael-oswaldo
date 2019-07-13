@@ -2,6 +2,8 @@ import scrapy
 from scrapy_03.items import ProductoFybeca
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import TakeFirst
+import os
+import pandas as pd
 class AraniaProductosFybeca(scrapy.Spider):
     name = 'arania_fybeca'
 
@@ -40,6 +42,11 @@ class AraniaProductosFybeca(scrapy.Spider):
                 producto_loader.add_css('precio','.price::attr(data-bind)')
 
                 yield producto_loader.load_item()
+    
+
+
+
+
                 # print('######################################################################3###')
                 #print(producto_loader)
 
