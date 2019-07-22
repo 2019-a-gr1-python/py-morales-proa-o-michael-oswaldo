@@ -24,3 +24,4 @@ class ProductoFybeca(scrapy.Item):
     transformar_precio
     ))
     titulo = scrapy.Field()
+    
